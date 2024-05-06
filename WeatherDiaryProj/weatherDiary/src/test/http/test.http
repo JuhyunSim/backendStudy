@@ -1,0 +1,8 @@
+### create Diary
+POST http://localhost:8080/create/diary?date=2024-05-01
+Content-Type: application/json
+
+{
+  "text" : "abcdefg"
+}
+
