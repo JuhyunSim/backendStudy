@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    include:
+      - domain
+
+springdoc:
+  packagesToScan: com.zerobase.api
+  pathsToMatch: /fintech/api/v1/**
+
+server:
+  port: 80
