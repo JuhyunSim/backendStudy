@@ -1,9 +1,8 @@
-package com.zerobase.cms.userapi.service;
+package com.zerobase.cms.user.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zerobase.cms.userapi.client.mailgun.MailGunClient;
-
-import com.zerobase.cms.userapi.client.mailgun.SendingMailForm;
+import com.zerobase.cms.user.client.mailgun.MailGunClient;
+import com.zerobase.cms.user.client.mailgun.SendingMailForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 public class EmailSendService {
 
     private final MailGunClient mailGunClient;
-    private final ObjectMapper objectMapper;
 
     public String sendEmail() {
         SendingMailForm sendingMailForm = SendingMailForm.builder()
