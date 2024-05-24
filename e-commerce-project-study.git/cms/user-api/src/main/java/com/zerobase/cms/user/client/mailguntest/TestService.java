@@ -1,4 +1,4 @@
-package com.zerobase.cms.userapi.mailgunTest;
+package com.zerobase.cms.user.client.mailguntest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

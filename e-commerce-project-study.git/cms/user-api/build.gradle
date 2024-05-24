@@ -30,14 +30,19 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'com.h2database:h2'
+
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
+
+
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
+    implementation 'com.mashape.unirest:unirest-java:1.4.9'
+    implementation 'org.springframework.data:spring-data-envers'
+
+    //test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
-//    implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.0'
-    implementation 'com.mashape.unirest:unirest-java:1.4.9'
+    testImplementation 'com.h2database:h2'
 }
 
 dependencyManagement {
