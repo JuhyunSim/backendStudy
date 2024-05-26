@@ -9,26 +9,32 @@ spring:
         jackson:
           enabled: true
 
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    hikari:
-#      jdbc-url: jdbc:mysql://localhost:3306/cms-mysql?use-SSL=false&useUnicode=true&allowPublicKeyRetrieval=true
-#      username: cms
-#      password: cms
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: create
+
+
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cms?use-SSL=false&useUnicode=true&allowPublicKeyRetrieval=true
+    username: cms
+    password: cms
 
 
 #test
 
-  jpa:
-    hibernate:
-      ddl-auto: create
-    show-sql: true
-  datasource:
-    driver-class-name: org.h2.Driver
-    hikari:
-      jdbc-url: jdbc:h2:tcp://localhost/~/test
-      username: sa
-      password:
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    hikari:
+#      jdbc-url: jdbc:h2:tcp://localhost/~/test
+#      username: sa
+#      password:
 
 
 

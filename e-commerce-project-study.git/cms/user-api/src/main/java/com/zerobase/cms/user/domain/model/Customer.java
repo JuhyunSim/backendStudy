@@ -2,10 +2,7 @@ package com.zerobase.cms.user.domain.model;
 
 import com.zerobase.cms.user.domain.SignupForm;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.envers.AuditOverride;
 import org.hibernate.envers.Audited;
 
@@ -15,6 +12,7 @@ import java.util.Locale;
 
 @Entity
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -47,5 +45,4 @@ public class Customer extends BaseEntity{
                 .verify(false )
                 .build();
     }
-
 }

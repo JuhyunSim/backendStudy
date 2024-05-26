@@ -29,7 +29,6 @@ class EmailSendServiceTest {
     @Test
     void sendEmailTest() {
 
-
         //given
         String expectedMessage = "This is a test message";
         when(mailGunClient.sendEmail(any(SendingMailForm.class)))
