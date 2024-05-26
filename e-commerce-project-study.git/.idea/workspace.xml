@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4559a412-65a4-4e82-bba7-71a8fc3e40ff" name="Changes" comment="feat: [001-EMAIL-connect] mailgun에 대한 이메일 연동&#10;&#10;무료계정으로 테스트 시 이메일 인증(verify) 필요&#10;스팸메일함 확인(등록되지 않은 계정으로 발송 시, 스팸처리)" />
+    <list default="true" id="4559a412-65a4-4e82-bba7-71a8fc3e40ff" name="Changes" comment="feat: [001-EMAIL-connect] mailgun에 대한 이메일 연동&#10;&#10;무료계정으로 테스트 시 이메일 인증(verify) 필요&#10;스팸메일함 확인(등록되지 않은 계정으로 발송 시, 스팸처리)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,17 +25,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="cms" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="cms" type="f1a62948:ProjectNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -65,7 +57,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/JuhyunSim/backendStudy&quot;,
+    &quot;url&quot;: &quot;https://JuhyunSim@github.com/JuhyunSim/backendStudy.git&quot;,
     &quot;accountId&quot;: &quot;7b0f8fb7-087e-413d-8c7c-a419e4f43da6&quot;
   }
 }</component>
@@ -96,9 +88,9 @@
     &quot;Spring Boot.CmsApplication.executor&quot;: &quot;Run&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;003-EMAIL-Verification&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/user/Documents/programming_file/server/backendStudy/e-commerce-project-study.git&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/user/Documents/programming_file/server/backendStudy2/e-commerce-project-study.git&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -238,6 +230,8 @@
       <workItem from="1716509155129" duration="9263000" />
       <workItem from="1716526289625" duration="768000" />
       <workItem from="1716527066239" duration="318000" />
+      <workItem from="1716528634982" duration="217000" />
+      <workItem from="1716528858212" duration="88000" />
     </task>
     <task id="LOCAL-00001" summary="feat: [001-EMAIL-connect] mailgun에 대한 이메일 연동&#10;&#10;무료계정으로 테스트 시 이메일 인증(verify) 필요&#10;스팸메일함 확인(등록되지 않은 계정으로 발송 시, 스팸처리)">
       <option name="closed" value="true" />
