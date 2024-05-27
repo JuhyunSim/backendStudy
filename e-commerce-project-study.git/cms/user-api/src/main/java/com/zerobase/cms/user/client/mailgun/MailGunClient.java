@@ -13,6 +13,4 @@ public interface MailGunClient {
 
     @PostMapping("/sandbox2a6a130782fb4842abc349c251d485d5.mailgun.org/messages")
     ResponseEntity<String> sendEmail(@SpringQueryMap SendingMailForm sendingMailForm);
-
-
 }

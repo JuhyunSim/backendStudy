@@ -1,5 +1,6 @@
 package com.zerobase.cms.user.exception;
 
+import jakarta.servlet.ServletException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
@@ -20,6 +21,12 @@ public class ExceptionController {
                 new ExceptionResponse(c.getErrorCode(), c.getMessage())
         );
     }
+
+//    @ExceptionHandler({ServletException.class})
+//    public ResponseEntity<String> handleServletException(String errorMessage) {
+//        log.warn("api Exception: {} ", errorMessage);
+//        return ResponseEntity.badRequest().body("잘못된 인증 시도.");
+//    }
 
     @Getter
     @ToString
