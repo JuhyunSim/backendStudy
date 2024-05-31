@@ -12,6 +12,10 @@ public enum ErrorCode {
     WRONG_VERIFICATION(HttpStatus.BAD_REQUEST, "잘못된 인증시도입니다."),
     EXPIRED_CODE(HttpStatus.BAD_REQUEST, "인증시간이 만료되었습니다."),
 
+    //상품
+    NOT_FOUND_PRODUCT(HttpStatus.BAD_REQUEST, "상품을 찾을 수 없습니다."),
+    SAME_ITEM_NAME(HttpStatus.BAD_REQUEST, "아이템 명 중복입니다."),
+
     //login
     LOGIN_CHECK_FAIL(HttpStatus.BAD_REQUEST, "로그인 이메일이나 패스워드를 확인해주세요."),
 
