@@ -17,7 +17,10 @@ public class CustomerFilter implements Filter {
     private final CustomerService customerService;
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+    public void doFilter(ServletRequest servletRequest,
+                         ServletResponse servletResponse,
+                         FilterChain filterChain
+    ) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         String token = request.getHeader("X-Auth-Token");
         if (!jwtAuthenticationProvider.validateToken(token)) {
