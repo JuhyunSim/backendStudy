@@ -1,0 +1,59 @@
+### 회원가입(고객)
+POST http://localhost:8080/signup/customer
+Content-Type: application/json
+
+{
+  "email": "floweronwall31@gmail.com",
+  "name": "Kim",
+  "password": "1111",
+  "birth": "2000-01-01",
+  "phone": "010-1234-1234"
+}
+
+### 회원가입(메일 인증)
+PUT http://localhost:8080/signup/verify/customer?
+    email=floweronwall31@gmail.com&code=vu7lknbj97
+Content-Type: application/x-www-form-urlencoded
+
+
+### 회원 로그인(고객)
+POST http://localhost:8080/signin/customer
+Content-Type: application/json
+
+{
+  "email": "floweronwall31@gmail.com",
+  "password": "1111"
+}
+
+### 고객 정보 조회
+GET http://localhost:8080/customer/getinfo
+X-Auth-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1RHM2bVRuNDVBUlZCdENaOHdTc0ZCYlY3WWN2a0Q4R1k2Q2JSSUsrQW84PSIsImp0aSI6Ii9odjFNUEJpd0JybTljcmZGbzYyWmc9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE3MTcxNjE5MDAsImV4cCI6MTcxNzI0ODMwMH0.7DswRX1Vo8Kfa7NbwTJS8m1Au47fHw-k_dQSmZXHTsg
+
+### 셀러 상품 추가
+POST http://localhost:8082/seller/product/add
+Content-Type: application/json
+X-Auth-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1RHM2bVRuNDVBUlZCdENaOHdTc0ZCYlY3WWN2a0Q4R1k2Q2JSSUsrQW84PSIsImp0aSI6Ii9odjFNUEJpd0JybTljcmZGbzYyWmc9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE3MTcxNjE5MDAsImV4cCI6MTcxNzI0ODMwMH0.7DswRX1Vo8Kfa7NbwTJS8m1Au47fHw-k_dQSmZXHTsg
+
+{
+  "name": "나이키 에어포스",
+  "description": "상품 설명",
+  "addProductItems": [
+    {
+      "count": 1,
+      "name": "270",
+      "price": 100000
+    }
+  ]
+}
+
+### 셀러 상품 아이템 추가
+POST http://localhost:8082/seller/product/add/item
+Content-Type: application/json
+X-Auth-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1RHM2bVRuNDVBUlZCdENaOHdTc0ZCYlY3WWN2a0Q4R1k2Q2JSSUsrQW84PSIsImp0aSI6Ii9odjFNUEJpd0JybTljcmZGbzYyWmc9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE3MTcxNjE5MDAsImV4cCI6MTcxNzI0ODMwMH0.7DswRX1Vo8Kfa7NbwTJS8m1Au47fHw-k_dQSmZXHTsg
+
+{
+  "productId": 1,
+  "name": "280",
+  "price": 100000,
+  "count": 1
+}
