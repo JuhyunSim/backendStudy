@@ -7,7 +7,7 @@ import lombok.*;
 import org.hibernate.envers.AuditOverride;
 import org.hibernate.envers.Audited;
 
-@Entity
+@Entity(name = "product_item")
 @Getter
 @Setter
 @AllArgsConstructor

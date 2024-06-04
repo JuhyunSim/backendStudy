@@ -1,5 +1,6 @@
 package com.zerobase.cms.order.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.zerobase.cms.order.domain.model.ProductItemEntity;
 import lombok.*;
 
@@ -11,6 +12,8 @@ import lombok.*;
 public class ProductItemDto {
     private Long id;
     private Long sellerId;
+
+    @JsonProperty("name")
     private String name;
     private Integer price;
     private Integer count;
