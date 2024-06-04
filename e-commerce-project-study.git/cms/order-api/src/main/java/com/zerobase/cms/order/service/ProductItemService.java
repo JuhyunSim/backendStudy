@@ -46,4 +46,15 @@ public class ProductItemService {
         productItemEntity.setPrice(updateProductItemForm.getPrice());
         return productItemEntity;
     }
+
+    @Transactional
+    public void deleteProductItem(Long sellerId, Long productId) {
+        ProductItemEntity productItemEntity = productItemRepository.findById(productId).filter(
+                pi -> pi.getSellerId().equals(sellerId)
+        ).orElseThrow(
+                () -> new CustomException(ErrorCode.NOT_FOUND_PRODUCT)
+        );
+
+        productItemRepository.delete(productItemEntity);
+    }
 }

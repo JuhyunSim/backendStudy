@@ -70,4 +70,25 @@ public class SellerProductController {
         return ResponseEntity.ok(ProductItemDto.from(productItemEntity));
     }
 
+    @DeleteMapping("/delete")
+    public ResponseEntity<?> deleteProduct(@RequestHeader(name = "X-Auth-Token") String token,
+                                           @RequestParam Long id
+    ) {
+        productService.deleteProductEntity(
+                provider.getUserVo(token).getId(), id
+        );
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/delete/item")
+    public ResponseEntity<?> updateProductItem(
+            @RequestHeader(name = "X-Auth-Token") String token,
+            @RequestParam Long id
+    ) {
+        productItemService.deleteProductItem(
+                provider.getUserVo(token).getId(), id
+        );
+        return ResponseEntity.ok().build();
+    }
+
 }
