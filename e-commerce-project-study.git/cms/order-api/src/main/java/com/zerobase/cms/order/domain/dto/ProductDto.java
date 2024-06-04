@@ -33,4 +33,13 @@ public class ProductDto {
                         .collect(Collectors.toList()))
                 .build();
     }
+
+    public static ProductDto noItemsfrom(ProductEntity productEntity) {
+        return ProductDto.builder()
+                .id(productEntity.getId())
+                .sellerId(productEntity.getSellerId())
+                .name(productEntity.getName())
+                .description(productEntity.getDescription())
+                .build();
+    }
 }

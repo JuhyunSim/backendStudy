@@ -8,7 +8,15 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface ProductRepository extends JpaRepository<ProductEntity, Long>{
-    @EntityGraph(attributePaths = {"items"}, type = EntityGraph.EntityGraphType.LOAD)
+public interface ProductRepository extends JpaRepository<ProductEntity, Long>
+        , ProductRepositoryCustom{
+    @EntityGraph(attributePaths = {"items"}, type =
+            EntityGraph.EntityGraphType.LOAD)
     Optional<ProductEntity> findBySellerIdAndId(Long sellerId, Long productId);
+
+    @EntityGraph(attributePaths = {"items"}, type =
+            EntityGraph.EntityGraphType.LOAD)
+    Optional<ProductEntity> findWithItemsById(Long productId);
+
+
 }
