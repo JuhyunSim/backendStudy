@@ -1,7 +1,6 @@
 package com.zerobase.cms.order.domain.model;
 
 import com.zerobase.cms.order.domain.product.AddProductItemForm;
-import com.zerobase.cms.user.domain.model.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.envers.AuditOverride;
