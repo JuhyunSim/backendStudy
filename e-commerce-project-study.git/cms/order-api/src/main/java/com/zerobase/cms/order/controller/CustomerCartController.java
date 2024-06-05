@@ -24,6 +24,13 @@ public class CustomerCartController {
         return ResponseEntity.ok(cartApplication.addCart(
                 provider.getUserVo(token).getId(), addProductCartForm)
         );
-
     }
+
+    @GetMapping
+    public ResponseEntity<?> getCart(@RequestHeader("X-Auth-Token") String token) {
+        return ResponseEntity.ok(
+                cartApplication.getCart(provider.getUserVo(token).getId())
+        );
+    }
+
 }
