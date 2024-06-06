@@ -1,6 +1,7 @@
 package com.zerobase.cms.user.controller;
 
 
+import com.zerobase.cms.user.domain.customer.ChangeBalanceForm;
 import com.zerobase.cms.user.domain.customer.CustomerDto;
 import com.zerobase.cms.user.domain.model.Customer;
 import com.zerobase.cms.user.exception.CustomException;
@@ -11,10 +12,7 @@ import com.zerobase.domain.config.JwtAuthenticationProvider;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/customer")
@@ -32,6 +30,14 @@ public class CustomerController {
         );
         return ResponseEntity.ok(CustomerDto.from(customer));
     }
-
-
+    @PutMapping("/balance")
+    public ResponseEntity<Integer> changeBalance(
+            @RequestHeader(name = "X-Auth-Token") String token,
+            @RequestBody ChangeBalanceForm changeBalanceForm
+    ) {
+        Integer currentBalance = customerService.changeBalance(
+                jwtAuthenticationProvider.getUserVo(token).getId(),
+                changeBalanceForm);
+        return ResponseEntity.ok(currentBalance);
+    }
 }
