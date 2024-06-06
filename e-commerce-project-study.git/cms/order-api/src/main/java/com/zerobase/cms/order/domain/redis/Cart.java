@@ -22,6 +22,11 @@ public class Cart {
     private List<Product> products = new ArrayList<>();
     private List<String> messages = new ArrayList<>();
 
+    public Cart (Long customerId) {
+        this.customerId = customerId;
+    }
+
+
     public void addMessage(String message) {
         messages.add(message);
     }
@@ -73,5 +78,9 @@ public class Cart {
                     .price(addProductItemCartForm.getPrice())
                     .build();
         }
+    }
+
+    public Cart clone() {
+        return new Cart(customerId, products, messages);
     }
 }

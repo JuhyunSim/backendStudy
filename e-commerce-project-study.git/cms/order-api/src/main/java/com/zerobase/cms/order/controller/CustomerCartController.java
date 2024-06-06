@@ -3,7 +3,6 @@ package com.zerobase.cms.order.controller;
 import com.zerobase.cms.order.application.CartApplication;
 import com.zerobase.cms.order.domain.product.AddProductCartForm;
 import com.zerobase.cms.order.domain.redis.Cart;
-import com.zerobase.cms.order.service.CartService;
 import com.zerobase.domain.config.JwtAuthenticationProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +23,20 @@ public class CustomerCartController {
         return ResponseEntity.ok(cartApplication.addCart(
                 provider.getUserVo(token).getId(), addProductCartForm)
         );
+    }
 
+    @GetMapping
+    public ResponseEntity<?> getCart(@RequestHeader("X-Auth-Token") String token) {
+        return ResponseEntity.ok(
+                cartApplication.getCart(provider.getUserVo(token).getId())
+        );
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<?> updateCart(@RequestHeader("X-Auth-Token") String token,
+                                        @RequestBody Cart cart) {
+        return ResponseEntity.ok(cartApplication.updateCart(
+                provider.getUserVo(token).getId(), cart)
+        );
     }
 }
