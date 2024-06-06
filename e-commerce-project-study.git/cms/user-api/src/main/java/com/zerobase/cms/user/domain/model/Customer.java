@@ -30,6 +30,7 @@ public class Customer extends BaseEntity{
     private String password;
     private String phone; //휴대폰번호 validation?
     private LocalDate birth;
+    private Integer balance;
 
     private LocalDateTime verifyExpiredAt;
     private String verificationCode;

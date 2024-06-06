@@ -96,7 +96,7 @@ public class CartApplication {
     }
 
 
-    private Cart refreshCart(Cart cart) {
+    protected Cart refreshCart(Cart cart) {
         //1. 상품 or 상품 아이템의 변동사항(가격, 수량 등) 체크 -> 변동사항에 맞게 알람 전송
         //2. 임의로 장바구니 내의 수량, 가격을 변동시킴 (변동 여부에 대해서도 알람 제공)
         for (int i = 0; i < cart.getProducts().size(); i++) {
