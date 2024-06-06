@@ -75,6 +75,11 @@ public class CartApplication {
                 );
     }
 
+    public Cart updateCart(Long customerId, Cart cart) {
+        cartService.putCart(customerId, cart);
+        return getCart(customerId);
+    }
+
     //1. 장바구니에 상품 추가
     //2. 상품의 가격이나 수량이 변동될 수 있음
 
