@@ -21,6 +21,10 @@ public enum ErrorCode {
     //장바구니
     CART_CHANGE_FAIL(HttpStatus.BAD_REQUEST, "장바구니에 추가하실 수 없습니다."),
 
+    //주문
+    ORDER_FAIL_CHECK_CART(HttpStatus.BAD_REQUEST, "주문 불가! 장바구니를 확인하세요"),
+    ORDER_FAIL_NOT_ENOUGH_BALANCE(HttpStatus.BAD_REQUEST, "주문 불가! 잔액이 부족합니다."),
+
     //login
     LOGIN_CHECK_FAIL(HttpStatus.BAD_REQUEST, "로그인 이메일이나 패스워드를 확인해주세요."),
 
