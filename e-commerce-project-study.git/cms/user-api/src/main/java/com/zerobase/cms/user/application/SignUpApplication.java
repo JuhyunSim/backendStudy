@@ -4,9 +4,11 @@ import com.zerobase.cms.user.client.mailgun.MailGunClient;
 import com.zerobase.cms.user.client.mailgun.SendingMailForm;
 import com.zerobase.cms.user.domain.SignupForm;
 import com.zerobase.cms.user.domain.model.Customer;
+import com.zerobase.cms.user.domain.model.Seller;
 import com.zerobase.cms.user.exception.CustomException;
 import com.zerobase.cms.user.exception.ErrorCode;
-import com.zerobase.cms.user.service.SignUpService;
+import com.zerobase.cms.user.service.CustomerSignUpService;
+import com.zerobase.cms.user.service.SellerSignUpService;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
@@ -16,18 +18,19 @@ import org.springframework.stereotype.Service;
 public class SignUpApplication {
 
     private final MailGunClient mailGunClient;
-    private final SignUpService signUpService;
+    private final CustomerSignUpService customerSignUpService;
+    private final SellerSignUpService sellerSignUpService;
 
     public void customerVerify(String email, String code) {
-        signUpService.verifyEmail(email, code);
+        customerSignUpService.verifyCustomerEmail(email, code);
     }
 
     public String customerSignUp(SignupForm form) {
 
-        if (signUpService.isEmail(form.getEmail())) {
+        if (customerSignUpService.isEmail(form.getEmail())) {
             throw new CustomException(ErrorCode.ALREADY_REGISTERED_USER);
         } else {
-            Customer customer = signUpService.signup(form);
+            Customer customer = customerSignUpService.signup(form);
             String code = getRandomCode();
 
             SendingMailForm sendingMailForm = SendingMailForm.builder()
@@ -38,7 +41,33 @@ public class SignUpApplication {
                             customer.getName(), code))
                     .build();
             mailGunClient.sendEmail(sendingMailForm);
-            signUpService.changeCustomerVerification(customer.getId(), code);
+            customerSignUpService.changeCustomerVerification(customer.getId(), code);
+        }
+        return "회원가입에 성공하였습니다.";
+    }
+
+    public void sellerVerify(String email, String code) {
+        sellerSignUpService.verifySellerEmail(email, code);
+    }
+
+    public String sellerSignUp(SignupForm form) {
+
+        if (sellerSignUpService.isEmail(form.getEmail())) {
+            throw new CustomException(ErrorCode.ALREADY_REGISTERED_USER);
+        } else {
+            Seller seller = sellerSignUpService.signup(form);
+            String code = getRandomCode();
+
+            SendingMailForm sendingMailForm = SendingMailForm.builder()
+                    .from("zerobase@zerobase.com")
+                    .to(seller.getEmail())
+                    .subject("Verify your email")
+                    .text(getValidateEmailBody(seller.getEmail(),
+                            seller.getName(), code))
+                    .build();
+            mailGunClient.sendEmail(sendingMailForm);
+            sellerSignUpService.changeSellerVerification(
+                    seller.getId(), code);
         }
         return "회원가입에 성공하였습니다.";
     }

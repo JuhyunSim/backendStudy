@@ -27,7 +27,7 @@ Content-Type: application/json
 
 ### 고객 정보 조회
 GET http://localhost:8080/customer/getinfo
-X-Auth-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1RHM2bVRuNDVBUlZCdENaOHdTc0ZCYlY3WWN2a0Q4R1k2Q2JSSUsrQW84PSIsImp0aSI6Ii9odjFNUEJpd0JybTljcmZGbzYyWmc9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE3MTcxNjE5MDAsImV4cCI6MTcxNzI0ODMwMH0.7DswRX1Vo8Kfa7NbwTJS8m1Au47fHw-k_dQSmZXHTsg
+X-Auth-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1RHM2bVRuNDVBUlZCdENaOHdTc0ZCYlY3WWN2a0Q4R1k2Q2JSSUsrQW84PSIsImp0aSI6Ii9odjFNUEJpd0JybTljcmZGbzYyWmc9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE3MTc2NjExNTMsImV4cCI6MTcxNzc0NzU1M30.MQO11A3lseVtDtOdKChzYr-NPhl_qGQ993IWWRiezmI
 
 ### 셀러 상품 추가
 POST http://localhost:8082/seller/product/add
@@ -35,7 +35,7 @@ Content-Type: application/json
 X-Auth-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1RHM2bVRuNDVBUlZCdENaOHdTc0ZCYlY3WWN2a0Q4R1k2Q2JSSUsrQW84PSIsImp0aSI6Ii9odjFNUEJpd0JybTljcmZGbzYyWmc9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE3MTcxNjE5MDAsImV4cCI6MTcxNzI0ODMwMH0.7DswRX1Vo8Kfa7NbwTJS8m1Au47fHw-k_dQSmZXHTsg
 
 {
-  "name": "나이키 에어포스",
+  "name": "프로스펙스1",
   "description": "상품 설명",
   "addProductItems": [
     {
@@ -56,4 +56,104 @@ X-Auth-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1RHM2bVRuNDVBUlZCdENaOHdTc0ZCYlY3W
   "name": "280",
   "price": 100000,
   "count": 1
+}
+
+### 상품 검색
+GET http://localhost:8082/search/list?
+    name=뉴발란스
+
+### 상품 상세 검색
+GET http://localhost:8082/search/detail?
+    productId=9
+
+### 장바구니 추가
+POST http://localhost:8082/customer/cart/add
+Content-Type: application/json
+X-Auth-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1RHM2bVRuNDVBUlZCdENaOHdTc0ZCYlY3WWN2a0Q4R1k2Q2JSSUsrQW84PSIsImp0aSI6Ii9odjFNUEJpd0JybTljcmZGbzYyWmc9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE3MTcxNjE5MDAsImV4cCI6MTcxNzI0ODMwMH0.7DswRX1Vo8Kfa7NbwTJS8m1Au47fHw-k_dQSmZXHTsg
+
+{
+  "productId": 5,
+  "sellerId": 1,
+  "name": "나이키 에어조던",
+  "description": "상품 설명",
+  "items": [
+    {
+    "id": 7,
+    "sellerId": 1,
+    "price": 100000,
+    "count": 1,
+    "name": "270"
+  }
+  ]
+}
+
+### 장바구니 확인
+GET http://localhost:8082/customer/cart
+X-Auth-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1RHM2bVRuNDVBUlZCdENaOHdTc0ZCYlY3WWN2a0Q4R1k2Q2JSSUsrQW84PSIsImp0aSI6Ii9odjFNUEJpd0JybTljcmZGbzYyWmc9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE3MTcxNjE5MDAsImV4cCI6MTcxNzI0ODMwMH0.7DswRX1Vo8Kfa7NbwTJS8m1Au47fHw-k_dQSmZXHTsg
+
+### 잔액 관리
+PUT http://localhost:8080/customer/balance
+Content-Type: application/json
+X-Auth-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1RHM2bVRuNDVBUlZCdENaOHdTc0ZCYlY3WWN2a0Q4R1k2Q2JSSUsrQW84PSIsImp0aSI6Ii9odjFNUEJpd0JybTljcmZGbzYyWmc9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE3MTc2NjA3ODksImV4cCI6MTcxNzc0NzE4OX0.WU3v8oEsO5lIz822isvwV21U_CSfBkr9dS6-E-wMfnk
+
+{
+  "customerId": 1,
+  "from": "server",
+  "message": "돈 지출",
+  "changeAmount": -1000
+}
+
+
+### 장바구니 상품 모두 결재
+POST http://localhost:8082/customer/cart/order
+Content-Type: application/json
+X-Auth-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1RHM2bVRuNDVBUlZCdENaOHdTc0ZCYlY3WWN2a0Q4R1k2Q2JSSUsrQW84PSIsImp0aSI6Ii9odjFNUEJpd0JybTljcmZGbzYyWmc9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE3MTc2NjA3ODksImV4cCI6MTcxNzc0NzE4OX0.WU3v8oEsO5lIz822isvwV21U_CSfBkr9dS6-E-wMfnk
+
+{
+  "customerId": 1,
+  "products": [
+    {
+      "id": 6,
+      "sellerId": 1,
+      "name": "뉴발란스 500",
+      "description": "상품 설명",
+      "items": [
+        {
+          "id": 8,
+          "name": "270",
+          "count": 0,
+          "price": 100000
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "sellerId": 1,
+      "name": "뉴발란스 700",
+      "description": "상품 설명",
+      "items": [
+        {
+          "id": 11,
+          "name": "270",
+          "count": 0,
+          "price": 100000
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "sellerId": 1,
+      "name": "나이키 에어조던",
+      "description": "상품 설명",
+      "items": [
+        {
+          "id": 7,
+          "name": "270",
+          "count": 1,
+          "price": 100000
+        }
+      ]
+    }
+  ],
+  "messages": []
 }
