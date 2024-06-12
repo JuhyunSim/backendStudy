@@ -11,10 +11,10 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class SignUpServiceTest {
+class CustomerSignUpServiceTest {
 
     @Autowired
-    private SignUpService signUpService;
+    private CustomerSignUpService customerSignUpService;
 
     @Test
     void signUpTest() {
@@ -27,7 +27,7 @@ class SignUpServiceTest {
                 .build();
 
         //when
-        Customer c = signUpService.signup(signupForm);
+        Customer c = customerSignUpService.signup(signupForm);
 
         //then
         assertEquals("Kim", signupForm.getName());
