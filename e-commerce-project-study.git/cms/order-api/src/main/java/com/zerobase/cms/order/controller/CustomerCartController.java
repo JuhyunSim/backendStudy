@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/customer/cart")
 @RequiredArgsConstructor
@@ -47,6 +49,15 @@ public class CustomerCartController {
                                    @RequestBody Cart cart) {
         //장바구니 내 모든 아이템 주문(결제)
         orderApplication.order(token, cart);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/select/order")
+    public ResponseEntity<?> orderSelected(
+            @RequestHeader("X-Auth-Token") String token,
+            @RequestBody Cart cart, @RequestBody List<Long> productIdList) {
+        //장바구니 내 모든 아이템 주문(결제)
+        orderApplication.selectOrder(token, cart, productIdList);
         return ResponseEntity.ok().build();
     }
 }
