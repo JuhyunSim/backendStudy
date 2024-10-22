@@ -2,6 +2,7 @@
 ## 소스파일
 - Java, Java Servlet, js, jsp 소스파일
 
+## 패키지 구조
 ### jsp
 - home, history, load-openapi 파일 각각 구성
 - wifi-home.jsp:  "현재위치 가져오기", "근처WIFI정보 조회하기" 기능 웹페이지에 출력, a태그 통해 위치조회 페이지로 이동
